@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Youtube card generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+      }
+      .container {
+        display: flex;
+        background-color: #0f0f0f;
+        height: 200px;
+        padding: 20px;
+        width: 100%;
+        border-bottom: 1px solid grey;
+      }
+      .image {
+        width: 50%;
+        cursor: pointer;
+      }
+      .details {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        /* background-color:bisque; */
+        gap: 10px 0px;
+        padding-top: 30px;
+        color: rgb(211, 211, 211);
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+      .channelname {
+        color: white;
+        font-size: 1rem;
+      }
+      .subscribe-btn {
+        width: 10%;
+        font-family: Arial, Helvetica, sans-serif;
+        /* background-color:brown */
+      }
+      .subscribe-btn button:hover {
+        background-color: rgb(207, 207, 207);
+      }
+      .channelinfo {
+        display: flex;
+        font-size: 15px;
+        gap:5px
+      }
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items:center
+      }
+      .image img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+      }
+      .subscribe-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .subscribe-btn button {
+        height: 40px;
+        width: 120px;
+        border-radius: 20px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .personinfo {
+        font-size: 15px;
+      }
+
+      @media screen and (max-width:1000px){
+.container .image{
+    width:30%
+}    
+.container .details{
+    width:50%
+} 
+.container .subscribe-btn{
+    width:20%
+} }
+
+@media screen and (max-width:700px){
+    .container .image img{
+width:80px;
+height:80px
+    }
+    .details{
+        gap:10px
+    }
+    .container .subscribe-btn{
+    width:20%
+}
+.container .channelname{
+    font-size:1rem
+}
+.channelinfo{
+    flex-direction:column
+}
+.container .channelinfo,.personinfo{
+    font-size:12px
+}
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image"><img src="channelimage.jpg" alt="image" /></div>
+      <div class="details">
+        <div class="channelname"><h2>Leah Gotti</h2></div>
+        <div class="channelinfo">
+          <div class="username">@leahlovestoplay</div>
+          <div class="subscribers">12M Subscribers</div>
+        </div>
+        <div class="personinfo">
+          A girl who loves to explore the new dimension of this mysterious world
+        </div>
+      </div>
+      <div class="subscribe-btn"><button class="btn" onclick="clicked()">Subscribed</button></div>
+    </div>
+
+    <script>
+       window.onload = function() {
+        const btn = document.querySelector(".btn");
+        const isSubscribed = localStorage.getItem("subscribed") === "true";
+
+        btn.innerText = isSubscribed ? "Subscribed" : "Subscribe";
+    };
+
+    // Function to handle button click
+    function clicked() {
+        const btn = document.querySelector(".btn");
+        const audio1 = new Audio('audio1.mp3'); // Create a new Audio object for 1
+        const audio2 = new Audio('audio2.mp3'); // Create a new Audio Project for 2
+        if (btn.innerText === "Subscribe") {
+            btn.innerText = "Subscribed";
+            localStorage.setItem("subscribed", "true");
+            audio1.play();
+        } else {
+            btn.innerText = "Subscribe";
+            localStorage.setItem("subscribed", "false");
+            audio2.play();
+        }
+
+        // Play the audio
+    }
+    </script>
+  </body>
+</html>
